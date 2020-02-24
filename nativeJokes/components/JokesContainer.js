@@ -5,15 +5,22 @@ import { View } from 'react-native'
 
 export function JokesContainer() {
     const [jokes, setJokes] = useState([])
-    useEffect(() => {
-        axios.get('https://icanhazdadjoke.com/search')
-            .then(res => {
-                console.log(res)
-            })
-            .catch(err => {
-                console.log('hey', err)
-            })
+    useEffect( () => {
+        const fetchData = async () => {
+            const result = await fetch('localhost:5000/api/users')
+            console.log(result)
+        }
+
+        // fetch('localhost:5000/api/users')
+        // .then(res => res.json())
+        // .then(data => {
+        //     console.log(data)
+        // })
+        // .catch(err => console.log(err))
+       fetchData()
     }, [])
+
+   
 
     return(
         <View>
